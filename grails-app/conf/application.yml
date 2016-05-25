@@ -119,3 +119,11 @@ grails:
 endpoints:
     jmx:
         unique-names: true
+---
+hibernate:
+  cache:
+    queries: false
+    region:
+      factory_class: 'org.hibernate.cache.ehcache.EhCacheRegionFactory'
+    use_query_cache: false
+    use_second_level_cache: false
