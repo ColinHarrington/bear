@@ -2,8 +2,7 @@ package bear
 
 class User {
     String userName
-    String cmsSiteId
-    String fullName
+    Integer cmsSiteId
 
     static constraints = {
     }
