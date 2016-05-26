@@ -9,9 +9,11 @@ buildscript {
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.5.0"
-        classpath "org.grails.plugins:hibernate4:5.0.0"
+        classpath "org.grails.plugins:hibernate4:5.0.8.BUILD-SNAPSHOT"
+//        classpath "org.grails.plugins:hibernate4:5.0.0"
     }
 }
+
 
 version "0.1"
 group "bear"
@@ -69,4 +71,13 @@ task wrapper(type: Wrapper) {
 assets {
     minifyJs = true
     minifyCss = true
+}
+
+//Added
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if(details.requested.group == 'org.grails' && details.requested.name.startsWith('grails-datastore')) {
+            details.useVersion("5.0.8.BUILD-SNAPSHOT")
+        }
+    }
 }
