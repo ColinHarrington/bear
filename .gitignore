@@ -4,4 +4,4 @@ classes
 *.iml
 *.ipr
 .asscache
-
+.gradle
